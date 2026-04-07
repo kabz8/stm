@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "EZLbT6PTWlwRAdixdaWKh"
+uri = "file://artifacts/solartech-merchants/src/assets/images/hero-home.png"
+type = "image"
+title = "Modern home with solar panels"
+
+[[generated]]
+id = "06LiYIjXlkgUQF-Zy40NJ"
+uri = "file://artifacts/solartech-merchants/src/assets/images/battery-system.png"
+type = "image"
+title = "Solar battery storage system"
+
+[[generated]]
+id = "PvT3ju1nMVnIcfBWYW5uO"
+uri = "file://artifacts/solartech-merchants/src/assets/images/solar-array.png"
+type = "image"
+title = "Solar panel array"
