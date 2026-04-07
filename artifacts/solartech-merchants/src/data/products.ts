@@ -20,7 +20,7 @@ export const products: Product[] = [
     price: 18500,
     category: "solar-panels",
     description: "High-efficiency monocrystalline solar panel designed for all weather conditions in Kenya.",
-    image: "/src/assets/images/solar-array.png"
+    image: "/images/solar-array.png"
   },
   {
     id: "sp-400",
@@ -28,7 +28,7 @@ export const products: Product[] = [
     price: 12000,
     category: "solar-panels",
     description: "Reliable power output for residential and small business applications.",
-    image: "/src/assets/images/solar-array.png"
+    image: "/images/solar-array.png"
   },
   {
     id: "sp-250",
@@ -36,7 +36,7 @@ export const products: Product[] = [
     price: 7500,
     category: "solar-panels",
     description: "Cost-effective solar panel for basic home lighting and TV systems.",
-    image: "/src/assets/images/solar-array.png"
+    image: "/images/solar-array.png"
   },
   {
     id: "sp-200",
@@ -44,7 +44,7 @@ export const products: Product[] = [
     price: 9800,
     category: "solar-panels",
     description: "Lightweight and flexible, perfect for curved roofs, RVs, and temporary setups.",
-    image: "/src/assets/images/solar-array.png"
+    image: "/images/solar-array.png"
   },
 
   // BATTERIES
@@ -54,7 +54,7 @@ export const products: Product[] = [
     price: 22000,
     category: "batteries",
     description: "Deep cycle maintenance-free gel battery for long-lasting solar storage.",
-    image: "/src/assets/images/battery-system.png"
+    image: "/images/battery-system.png"
   },
   {
     id: "bat-200-agm",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     price: 18500,
     category: "batteries",
     description: "Reliable AGM technology for daily cyclic applications.",
-    image: "/src/assets/images/battery-system.png"
+    image: "/images/battery-system.png"
   },
   {
     id: "bat-100-lithium",
@@ -70,7 +70,7 @@ export const products: Product[] = [
     price: 35000,
     category: "batteries",
     description: "Premium lithium iron phosphate battery with 10+ years lifespan and deep discharge capability.",
-    image: "/src/assets/images/battery-system.png"
+    image: "/images/battery-system.png"
   },
   {
     id: "hithium-dock",
@@ -78,7 +78,7 @@ export const products: Product[] = [
     price: 185000,
     category: "batteries",
     description: "Premium modular home energy storage system with smart monitoring.",
-    image: "/src/assets/images/battery-system.png"
+    image: "/images/battery-system.png"
   },
 
   // INVERTERS

@@ -5,7 +5,7 @@ import { getGeneralWhatsAppLink } from '@/data/products';
 import { Sun, Shield, Users, Leaf, Award, Phone, MapPin } from 'lucide-react';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 
-const SOLAR_IMAGE = '/src/assets/images/solar-array.png';
+const SOLAR_IMAGE = '/images/solar-array.png';
 
 const values = [
   { icon: Award, title: 'Quality Assurance', text: 'Every product we sell is sourced from certified manufacturers and thoroughly tested before delivery.' },

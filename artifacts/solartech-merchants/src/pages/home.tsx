@@ -9,9 +9,9 @@ import {
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 
-const HERO_IMAGE = '/src/assets/images/hero-home.png';
-const SOLAR_IMAGE = '/src/assets/images/solar-array.png';
-const BATTERY_IMAGE = '/src/assets/images/battery-system.png';
+const HERO_IMAGE = '/images/hero-home.png';
+const SOLAR_IMAGE = '/images/solar-array.png';
+const BATTERY_IMAGE = '/images/battery-system.png';
 
 const featuredProducts = products.filter(p =>
   ['combo-550', 'sp-550', 'bat-100-lithium', 'hithium-dock', 'inv-5000-hybrid', 'combo-1000'].includes(p.id)
@@ -96,17 +96,17 @@ export default function Home() {
                 Premium solar panels, batteries, inverters, and complete combo kits — sourced, tested, and delivered by Kenya's most trusted solar experts.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-14">
+              <div className="flex flex-row gap-3 mb-14 flex-wrap">
                 <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-6 text-base rounded-xl">
-                    <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
-                    Get Free Quote on WhatsApp
+                  <Button size="default" className="bg-transparent border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-bold px-6 py-5 text-sm rounded-xl transition-all">
+                    <WhatsAppIcon size={17} strokeWidth={1.8} className="mr-2" />
+                    Free Quote on WhatsApp
                   </Button>
                 </a>
                 <Link href="/products">
-                  <Button size="lg" className="bg-white text-[#0f0f0f] hover:bg-gray-100 font-bold px-8 py-6 text-base rounded-xl">
+                  <Button size="default" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0f0f0f] font-bold px-6 py-5 text-sm rounded-xl transition-all">
                     Browse Products
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
               </div>
