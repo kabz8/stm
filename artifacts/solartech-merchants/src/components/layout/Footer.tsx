@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'wouter';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, ArrowRight, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { Button } from '@/components/ui/button';
 import { getGeneralWhatsAppLink } from '@/data/products';
 
@@ -98,7 +99,7 @@ export default function Footer() {
             </ul>
             <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
               <Button className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl">
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2" />
                 Chat on WhatsApp
               </Button>
             </a>

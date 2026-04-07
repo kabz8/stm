@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ProductCard';
 import { products, getGeneralWhatsAppLink, formatKES, getProductWhatsAppLink } from '@/data/products';
 import {
-  Sun, Battery, Zap, Package, MessageCircle, Phone, MapPin,
+  Sun, Battery, Zap, Package, Phone, MapPin,
   CheckCircle2, Star, ArrowRight, Award, Clock, Headphones, ShieldCheck
 } from 'lucide-react';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 
 const HERO_IMAGE = '/src/assets/images/hero-home.png';
 const SOLAR_IMAGE = '/src/assets/images/solar-array.png';
@@ -101,7 +102,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 mb-14">
               <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg shadow-[#25D366]/30 transition-all hover:scale-[1.02]">
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
                   Get Free Quote on WhatsApp
                 </Button>
               </a>
@@ -246,7 +247,7 @@ export default function Home() {
                 </div>
                 <a href={getProductWhatsAppLink('550W Solar System Combo')} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-xl shadow-xl shadow-primary/30 transition-all hover:scale-[1.02] text-base">
-                    <MessageCircle className="w-5 h-5 mr-2" />
+                    <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
                     Order via WhatsApp
                   </Button>
                 </a>
@@ -347,7 +348,7 @@ export default function Home() {
               </div>
               <a href={getProductWhatsAppLink('Hithium Home Power Dock')} target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-5 rounded-xl shadow-xl shadow-primary/30 text-base">
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
                   Inquire via WhatsApp
                 </Button>
               </a>
@@ -375,7 +376,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-50 font-black px-10 py-6 rounded-xl text-base shadow-2xl hover:scale-[1.02] transition-all">
-                <MessageCircle className="w-5 h-5 mr-2 text-[#25D366]" />
+                <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2 text-[#25D366]" />
                 WhatsApp Us Now
               </Button>
             </a>

@@ -3,7 +3,8 @@ import { useParams } from 'wouter';
 import ProductCard from '@/components/ProductCard';
 import { products, getProductsByCategory, Category, getGeneralWhatsAppLink } from '@/data/products';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 
 const CATEGORY_LABELS: Record<string, string> = {
   all: 'All Products',
@@ -115,7 +116,7 @@ export default function Products() {
           <p className="text-gray-600 mb-6">We carry many more products. Chat with us on WhatsApp — we'll find exactly what you need.</p>
           <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
             <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 rounded-full">
-              <MessageCircle className="w-5 h-5 mr-2" />
+              <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
               Chat with Us on WhatsApp
             </Button>
           </a>

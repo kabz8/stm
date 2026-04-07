@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { getGeneralWhatsAppLink } from '@/data/products';
-import { Sun, Shield, Users, Leaf, Award, MessageCircle, Phone, MapPin } from 'lucide-react';
+import { Sun, Shield, Users, Leaf, Award, Phone, MapPin } from 'lucide-react';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 
 const SOLAR_IMAGE = '/src/assets/images/solar-array.png';
 
@@ -48,7 +49,7 @@ export default function About() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                   <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 font-bold shadow-lg shadow-primary/25">
-                    <MessageCircle className="w-4 h-4 mr-2" /> Talk to Us
+                    <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2" /> Talk to Us
                   </Button>
                 </a>
                 <Link href="/products">
@@ -127,7 +128,7 @@ export default function About() {
           <div className="flex flex-wrap gap-4 justify-center">
             <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
               <Button className="bg-white text-primary hover:bg-gray-50 font-black px-8 rounded-xl shadow-xl">
-                <MessageCircle className="w-4 h-4 mr-2 text-[#25D366]" /> WhatsApp Us
+                <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2 text-[#25D366]" /> WhatsApp Us
               </Button>
             </a>
             <Link href="/contact">

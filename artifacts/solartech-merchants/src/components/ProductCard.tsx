@@ -2,7 +2,8 @@ import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Product, formatKES, getProductWhatsAppLink } from '@/data/products';
-import { MessageCircle, CheckCircle2, Tag } from 'lucide-react';
+import { CheckCircle2, Tag } from 'lucide-react';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -26,7 +27,7 @@ export default function ProductCard({ product }: { product: Product }) {
               rel="noopener noreferrer"
             >
               <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl font-bold shadow-lg shadow-primary/40">
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2" />
                 Order via WhatsApp
               </Button>
             </a>
@@ -77,7 +78,7 @@ export default function ProductCard({ product }: { product: Product }) {
           data-testid={`button-order-${product.id}`}
         >
           <Button className="w-full bg-[#0f0f0f] hover:bg-primary text-white font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/30">
-            <MessageCircle className="w-4 h-4 mr-2" />
+            <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2" />
             Get Pricing &amp; Details
           </Button>
         </a>

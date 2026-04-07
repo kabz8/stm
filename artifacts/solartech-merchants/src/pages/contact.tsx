@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { WHATSAPP_NUMBER, getGeneralWhatsAppLink } from '@/data/products';
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', message: '' });
@@ -78,7 +79,7 @@ export default function Contact() {
                 className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-4 rounded-xl text-base shadow-lg shadow-[#25D366]/30"
                 data-testid="button-submit"
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
                 Send via WhatsApp
               </Button>
               <p className="text-xs text-gray-400 text-center">Clicking the button will open WhatsApp with your message pre-filled.</p>
@@ -90,7 +91,7 @@ export default function Contact() {
             <h2 className="text-2xl font-black text-[#0f0f0f] mb-6">Contact Information</h2>
 
             {[
-              { icon: MapPin, title: 'Our Location', content: <span className="text-gray-500 text-sm">Gaberone Plaza<br />Nairobi, Kenya</span> },
+              { icon: MapPin, title: 'Our Location', content: <span className="text-gray-500 text-sm">Gaberone Plaza<br />Kenyatta Avenue, Nairobi, Kenya</span> },
               {
                 icon: Phone, title: 'Call or WhatsApp',
                 content: (
@@ -127,7 +128,7 @@ export default function Contact() {
 
             {/* Quick WhatsApp */}
             <div className="bg-[#0f0f0f] rounded-2xl p-6 text-center">
-              <MessageCircle className="w-10 h-10 text-[#25D366] mx-auto mb-3" />
+              <WhatsAppIcon size={40} strokeWidth={1.4} className="text-[#25D366] mx-auto mb-3" />
               <h3 className="font-black text-white text-lg mb-2">Quick WhatsApp Chat</h3>
               <p className="text-gray-400 text-sm mb-5">Get a quote in minutes — no waiting, no forms.</p>
               <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
@@ -137,15 +138,17 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Map */}
-            <div className="rounded-2xl overflow-hidden border-2 border-gray-100 h-56">
+            {/* Map — Gaberone Plaza, Nairobi */}
+            <div className="rounded-2xl overflow-hidden border-2 border-gray-100 h-64">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8033!2d36.8172!3d-1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d0f74c38d3%3A0xe8f99a7d3cdaee6a!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1650000000000!5m2!1sen!2ske"
-                width="100%" height="100%"
+                src="https://maps.google.com/maps?q=Gaberone+Plaza+Nairobi+Kenya&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
                 style={{ border: 0 }}
-                allowFullScreen loading="lazy"
+                allowFullScreen
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Solartech Merchants — Gaberone Plaza, Nairobi"
+                title="Gaberone Plaza, Nairobi"
               />
             </div>
           </div>
