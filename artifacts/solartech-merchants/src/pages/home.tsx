@@ -1,160 +1,179 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import ProductCard from '@/components/ProductCard';
 import { products, getGeneralWhatsAppLink, formatKES, getProductWhatsAppLink } from '@/data/products';
 import {
-  Sun, Battery, Zap, Shield, MessageCircle, Phone, MapPin,
-  CheckCircle2, Star, ChevronRight, ArrowRight, Leaf, Award, Clock, Headphones
+  Sun, Battery, Zap, Package, MessageCircle, Phone, MapPin,
+  CheckCircle2, Star, ArrowRight, Award, Clock, Headphones, ShieldCheck
 } from 'lucide-react';
 
 const HERO_IMAGE = '/src/assets/images/hero-home.png';
-const BATTERY_IMAGE = '/src/assets/images/battery-system.png';
 const SOLAR_IMAGE = '/src/assets/images/solar-array.png';
+const BATTERY_IMAGE = '/src/assets/images/battery-system.png';
 
 const featuredProducts = products.filter(p =>
-  ['combo-550', 'bat-100-lithium', 'sp-550', 'inv-5000-hybrid', 'hithium-dock', 'combo-1000'].includes(p.id)
+  ['combo-550', 'sp-550', 'bat-100-lithium', 'hithium-dock', 'inv-5000-hybrid', 'combo-1000'].includes(p.id)
 );
 
 const testimonials = [
   {
     name: 'James Muthoni',
     location: 'Westlands, Nairobi',
-    text: 'Solartech Merchants transformed our home. We have not paid a KPLC bill in 6 months. The installation support was excellent and the team was very professional.',
+    text: 'Solartech Merchants transformed our home. We have not paid a KPLC bill in 6 months. The installation support was excellent.',
     rating: 5,
   },
   {
     name: 'Grace Wanjiku',
     location: 'Kiambu County',
-    text: 'I ordered the 550W combo kit via WhatsApp and it was delivered in two days. Very affordable pricing and the system has been running perfectly for my salon business.',
+    text: 'I ordered the 550W combo kit via WhatsApp and it was delivered in two days. Very affordable and the system has been running perfectly.',
     rating: 5,
   },
   {
     name: 'Peter Kamau',
     location: 'Ruaka, Nairobi',
-    text: 'The Hithium Power Dock is amazing — smart monitoring, huge capacity, and the team at Gaberone Plaza walked me through everything. Highly recommended.',
+    text: 'The Hithium Power Dock is amazing. Smart monitoring, huge capacity, and the team walked me through everything. Highly recommended.',
     rating: 5,
   },
   {
     name: 'Sarah Odhiambo',
     location: 'Langata, Nairobi',
-    text: 'Best solar prices in Nairobi, no doubt. I compared with several shops and Solartech was most competitive. The quality of panels is top-notch and after-sale service is great.',
+    text: 'Best solar prices in Nairobi. Quality of panels is top-notch and after-sale service is great. Will definitely refer friends.',
     rating: 5,
   },
 ];
 
 const categories = [
-  { label: 'Solar Panels', icon: Sun, href: '/products/solar-panels', color: 'bg-amber-50 text-amber-700 border-amber-200' },
-  { label: 'Batteries', icon: Battery, href: '/products/batteries', color: 'bg-blue-50 text-blue-700 border-blue-200' },
-  { label: 'Inverters', icon: Zap, href: '/products/inverters', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-  { label: 'Combo Kits', icon: Shield, href: '/products/combos', color: 'bg-green-50 text-green-700 border-green-200' },
+  { label: 'Solar Panels', icon: Sun, href: '/products/solar-panels' },
+  { label: 'Batteries', icon: Battery, href: '/products/batteries' },
+  { label: 'Inverters', icon: Zap, href: '/products/inverters' },
+  { label: 'Combo Kits', icon: Package, href: '/products/combos' },
 ];
 
 const whyUs = [
-  { icon: Award, title: 'Quality Guaranteed', text: 'All products come with manufacturer warranties. We only stock trusted, certified brands.' },
-  { icon: Leaf, title: 'Genuine Products', text: 'Authentic solar components — no counterfeits. Every product tested before delivery.' },
-  { icon: Headphones, title: 'After-Sales Support', text: 'Our technical team is available for installation guidance and troubleshooting via WhatsApp.' },
+  { icon: Award, title: 'Quality Guaranteed', text: 'All products come with manufacturer warranties. We only stock certified brands.' },
+  { icon: ShieldCheck, title: 'Genuine Products', text: 'Authentic solar components — no counterfeits. Every product tested before delivery.' },
+  { icon: Headphones, title: 'After-Sales Support', text: 'Our technical team is available for installation guidance and troubleshooting.' },
   { icon: Clock, title: 'Fast Delivery', text: 'Same-day and next-day delivery within Nairobi. Upcountry delivery available.' },
 ];
 
-export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [HERO_IMAGE, SOLAR_IMAGE, BATTERY_IMAGE];
+const stats = [
+  { value: '500+', label: 'Happy Customers' },
+  { value: '5+', label: 'Years in Business' },
+  { value: '1000+', label: 'Products in Stock' },
+  { value: '100%', label: 'Quality Assured' },
+];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+export default function Home() {
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
 
-      {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-secondary">
-        {/* Background image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={slides[currentSlide]}
-            alt="Solar energy"
-            className="w-full h-full object-cover opacity-20 transition-opacity duration-1000"
-          />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary/40" />
-        </div>
+      {/* ═══════════════════════════════════════════
+          HERO — black background, orange accents, image right
+      ═══════════════════════════════════════════ */}
+      <section className="relative bg-[#0f0f0f] overflow-hidden min-h-[92vh] flex items-center">
+        {/* Decorative orange glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-3xl">
-            <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-sm px-4 py-1.5">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* Text */}
+          <div>
+            <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
+              <Sun className="w-3.5 h-3.5" />
               Nairobi's Premier Solar Specialists
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
-              Power Your Home &amp; Business with
-              <span className="text-primary block mt-1">Solar Energy</span>
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
+              Power Your<br />
+              <span className="text-primary">Future</span>{' '}
+              <span className="text-white">with</span><br />
+              <span className="text-white">Solar Energy</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
-              Premium solar panels, batteries, inverters, and complete combo kits — delivered and supported by Kenya's trusted solar experts at Gaberone Plaza, Nairobi.
+
+            <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg">
+              Premium solar panels, batteries, inverters, and complete combo kits — sourced, tested, and delivered by Kenya's most trusted solar experts.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-14">
               <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-6 text-base rounded-full shadow-lg">
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg shadow-[#25D366]/30 transition-all hover:scale-[1.02]">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Get Free Quote on WhatsApp
                 </Button>
               </a>
               <Link href="/products">
-                <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 px-8 py-6 text-base rounded-full">
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:border-white/40 px-8 py-6 text-base rounded-xl transition-all">
                   Browse Products
-                  <ChevronRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8 mt-12">
-              {[
-                { value: '500+', label: 'Installations Done' },
-                { value: '5+ Years', label: 'In Business' },
-                { value: '100%', label: 'Quality Assured' },
-              ].map(stat => (
-                <div key={stat.label}>
-                  <div className="text-3xl font-display font-bold text-primary">{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+            {/* Mini stats */}
+            <div className="flex flex-wrap gap-x-10 gap-y-4">
+              {stats.map(s => (
+                <div key={s.label}>
+                  <div className="text-2xl font-black text-primary">{s.value}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wide">{s.label}</div>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* Hero image */}
+          <div className="relative hidden lg:block">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent rounded-3xl" />
+            <img
+              src={HERO_IMAGE}
+              alt="Solar installation"
+              onLoad={() => setImgLoaded(true)}
+              className={`w-full h-[540px] object-cover rounded-3xl shadow-2xl shadow-black/60 transition-opacity duration-700 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+            />
+            {/* Floating badge */}
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl px-6 py-4 flex items-center gap-4">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/40">
+                <Sun className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <div className="font-black text-[#0f0f0f] text-lg leading-none">KES 68,000</div>
+                <div className="text-xs text-gray-500 mt-0.5">550W Complete System</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Slide indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-2 rounded-full transition-all ${idx === currentSlide ? 'w-8 bg-primary' : 'w-2 bg-white/40'}`}
-            />
-          ))}
-        </div>
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
       </section>
 
-      {/* PRODUCT CATEGORIES */}
-      <section className="py-16 bg-gray-50">
+      {/* ═══════════════════════════════════════════
+          CATEGORIES — horizontal cards on white
+      ═══════════════════════════════════════════ */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-secondary mb-4">Shop by Category</h2>
-            <p className="text-gray-600 max-w-xl mx-auto">From individual components to complete solar systems — everything you need for clean, reliable power.</p>
+          <div className="text-center mb-14">
+            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">What We Offer</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#0f0f0f] mb-4">Shop by Category</h2>
+            <p className="text-gray-500 max-w-lg mx-auto">From individual components to complete turnkey solar systems.</p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {categories.map(cat => (
               <Link key={cat.href} href={cat.href}>
-                <div className={`border rounded-2xl p-6 text-center hover:shadow-md transition-all cursor-pointer group ${cat.color}`}>
-                  <cat.icon className="w-10 h-10 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                  <div className="font-display font-semibold text-base sm:text-lg">{cat.label}</div>
-                  <div className="text-sm mt-1 flex items-center justify-center gap-1 opacity-70">
-                    Shop now <ArrowRight className="w-3 h-3" />
+                <div className="group relative border-2 border-gray-100 hover:border-primary rounded-2xl p-7 text-center cursor-pointer transition-all hover:shadow-xl hover:shadow-primary/10 bg-white overflow-hidden">
+                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 transition-all">
+                      <cat.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="font-bold text-[#0f0f0f] text-base">{cat.label}</div>
+                    <div className="text-xs text-gray-400 mt-1 flex items-center justify-center gap-1 group-hover:text-primary transition-colors">
+                      Shop now <ArrowRight className="w-3 h-3" />
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -163,17 +182,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED PRODUCTS */}
-      <section className="py-20">
+      {/* ═══════════════════════════════════════════
+          FEATURED PRODUCTS
+      ═══════════════════════════════════════════ */}
+      <section className="py-20 bg-[#fafafa]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-secondary mb-2">Featured Products</h2>
-              <p className="text-gray-600">Our most popular solar solutions for Kenyan homes and businesses.</p>
+              <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Bestsellers</p>
+              <h2 className="text-4xl sm:text-5xl font-black text-[#0f0f0f]">Featured Products</h2>
             </div>
             <Link href="/products">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-full">
-                View All Products <ArrowRight className="w-4 h-4 ml-2" />
+              <Button variant="outline" className="border-[#0f0f0f] text-[#0f0f0f] hover:bg-[#0f0f0f] hover:text-white rounded-xl font-semibold shrink-0">
+                View All <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
           </div>
@@ -185,93 +206,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMBO HIGHLIGHT BANNER */}
-      <section className="py-16 bg-primary/10 border-y border-primary/20">
+      {/* ═══════════════════════════════════════════
+          COMBO SPOTLIGHT — dark section with orange pop
+      ═══════════════════════════════════════════ */}
+      <section className="bg-[#0f0f0f] py-20 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="flex-1">
-              <Badge className="mb-4 bg-primary text-white">Best Seller</Badge>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-secondary mb-4">
-                550W Solar System Combo
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8 shadow-lg shadow-primary/30">
+                Best Seller
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
+                550W Complete<br />
+                <span className="text-primary">Solar System Combo</span>
               </h2>
-              <p className="text-gray-700 mb-6 text-lg">Complete plug-and-play solar kit for your home. Everything you need, delivered to your door.</p>
-              <ul className="space-y-2 mb-8">
+              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                Everything you need to power your home — panels, battery, inverter, cables, bulbs, and a FREE floodlight. One kit, total freedom from the grid.
+              </p>
+              <ul className="space-y-3 mb-10">
                 {[
                   '550W Monocrystalline All-Weather Panel',
                   '250Ah Solar Gel Battery',
-                  '600-1200W DC-AC Power Inverter',
+                  '600–1200W DC-AC Power Inverter',
                   '30A Solar Charge Controller',
                   '20M 4.0mm PV Solar Cable',
-                  '6pcs 5W DC Bulbs',
+                  '6pcs 5W DC LED Bulbs',
                   'FREE 50W Solar Floodlight',
                 ].map(item => (
-                  <li key={item} className="flex items-center gap-2 text-gray-700">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                    {item}
+                  <li key={item} className="flex items-center gap-3 text-gray-300">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <div>
-                  <div className="text-sm text-gray-500">Package Price</div>
-                  <div className="text-4xl font-display font-bold text-secondary">{formatKES(68000)}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Package Price</div>
+                  <div className="text-5xl font-black text-primary">{formatKES(68000)}</div>
                 </div>
                 <a href={getProductWhatsAppLink('550W Solar System Combo')} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-8 py-6 rounded-full shadow-lg text-base">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-xl shadow-xl shadow-primary/30 transition-all hover:scale-[1.02] text-base">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Order via WhatsApp
                   </Button>
                 </a>
               </div>
             </div>
-            <div className="flex-1 max-w-lg w-full">
-              <img src={SOLAR_IMAGE} alt="550W Solar Combo" className="w-full rounded-2xl shadow-xl object-cover aspect-video" />
+
+            <div className="relative">
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" />
+              <img
+                src={SOLAR_IMAGE}
+                alt="550W Solar Combo"
+                className="relative w-full rounded-2xl shadow-2xl shadow-black/60 aspect-video object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="py-20 bg-secondary">
+      {/* ═══════════════════════════════════════════
+          WHY CHOOSE US — white with bold orange icons
+      ═══════════════════════════════════════════ */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">Why Choose Solartech Merchants?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">We are not just selling solar — we are empowering Kenya, one home at a time.</p>
+            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Our Promise</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#0f0f0f] mb-4">Why Choose Us?</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">We are not just selling solar — we are empowering Kenya, one home at a time.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyUs.map(item => (
-              <div key={item.title} className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors">
-                  <item.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+            {whyUs.map((item, i) => (
+              <div key={item.title} className="group border-2 border-gray-100 hover:border-primary rounded-2xl p-8 transition-all hover:shadow-xl hover:shadow-primary/10">
+                <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
+                  <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="font-display font-semibold text-white text-lg mb-3">{item.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{item.text}</p>
+                <h3 className="font-bold text-[#0f0f0f] text-lg mb-3">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 bg-gray-50">
+      {/* ═══════════════════════════════════════════
+          TESTIMONIALS — light gray background
+      ═══════════════════════════════════════════ */}
+      <section className="py-20 bg-[#fafafa]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-secondary mb-4">What Our Customers Say</h2>
-            <p className="text-gray-600 max-w-xl mx-auto">Real Kenyans, real results. Trusted by hundreds of homes and businesses across Nairobi.</p>
+            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Customer Stories</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#0f0f0f] mb-4">What Kenyans Say</h2>
+            <p className="text-gray-500 max-w-lg mx-auto">Trusted by hundreds of homes and businesses across Nairobi.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map(t => (
-              <div key={t.name} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col">
-                <div className="flex gap-1 mb-4">
+              <div key={t.name} className="bg-white rounded-2xl p-7 shadow-sm border-2 border-gray-100 hover:border-primary/30 hover:shadow-md transition-all flex flex-col">
+                {/* Quote mark */}
+                <div className="text-6xl text-primary/20 font-serif leading-none mb-4 font-black">"</div>
+                <div className="flex gap-1 mb-4 -mt-4">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-primary fill-primary" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-grow">"{t.text}"</p>
-                <div>
-                  <div className="font-display font-semibold text-secondary">{t.name}</div>
-                  <div className="text-xs text-gray-500 flex items-center gap-1 mt-1">
-                    <MapPin className="w-3 h-3" /> {t.location}
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">{t.text}</p>
+                <div className="border-t border-gray-100 pt-4">
+                  <div className="font-bold text-[#0f0f0f]">{t.name}</div>
+                  <div className="text-xs text-gray-400 flex items-center gap-1 mt-1">
+                    <MapPin className="w-3 h-3 text-primary" /> {t.location}
                   </div>
                 </div>
               </div>
@@ -280,29 +322,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-20 bg-gradient-to-br from-primary to-amber-600">
+      {/* ═══════════════════════════════════════════
+          HITHIUM SPOTLIGHT — premium product feature
+      ═══════════════════════════════════════════ */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] p-10 sm:p-14 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/15 rounded-full blur-[100px] pointer-events-none" />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 border border-primary/40 text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                Premium Product
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
+                Hithium Home<br /><span className="text-primary">Power Dock</span>
+              </h2>
+              <p className="text-gray-400 leading-relaxed mb-8">
+                A premium modular home energy storage system with intelligent smart monitoring. Expandable capacity, app-controlled, and built for the future of home energy in Kenya.
+              </p>
+              <div className="flex items-center gap-6 mb-8">
+                <div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">Starting from</div>
+                  <div className="text-3xl font-black text-primary">{formatKES(185000)}</div>
+                </div>
+              </div>
+              <a href={getProductWhatsAppLink('Hithium Home Power Dock')} target="_blank" rel="noopener noreferrer">
+                <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-5 rounded-xl shadow-xl shadow-primary/30 text-base">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Inquire via WhatsApp
+                </Button>
+              </a>
+            </div>
+            <div className="relative">
+              <img
+                src={BATTERY_IMAGE}
+                alt="Hithium Home Power Dock"
+                className="w-full rounded-2xl aspect-video object-cover shadow-2xl shadow-black"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          CTA FOOTER BAND — full orange
+      ═══════════════════════════════════════════ */}
+      <section className="bg-primary py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">Ready to Go Solar?</h2>
-          <p className="text-white/85 text-lg mb-10 max-w-xl mx-auto">
-            Get a free consultation and customized quote for your home or business. Our team is ready on WhatsApp.
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">Ready to Go Solar?</h2>
+          <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
+            Get a free, customized quote for your home or business. Our team responds within minutes on WhatsApp.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-50 font-bold px-10 py-6 rounded-full text-base shadow-xl">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-50 font-black px-10 py-6 rounded-xl text-base shadow-2xl hover:scale-[1.02] transition-all">
                 <MessageCircle className="w-5 h-5 mr-2 text-[#25D366]" />
                 WhatsApp Us Now
               </Button>
             </a>
             <a href="tel:+254729430917">
-              <Button size="lg" variant="outline" className="border-white/60 text-white hover:bg-white/10 px-10 py-6 rounded-full text-base">
+              <Button size="lg" className="bg-white/15 border border-white/40 text-white hover:bg-white/25 px-10 py-6 rounded-xl text-base transition-all font-semibold">
                 <Phone className="w-5 h-5 mr-2" />
-                Call +254 729 430 917
+                +254 729 430 917
               </Button>
             </a>
           </div>
-          <p className="text-white/60 text-sm mt-8">
-            Visit us: Gaberone Plaza, Nairobi, Kenya &nbsp;|&nbsp; info@solartechmerchants.com
+          <p className="text-white/50 text-sm mt-8 flex items-center justify-center gap-2">
+            <MapPin className="w-4 h-4" />
+            Gaberone Plaza, Nairobi, Kenya &nbsp;|&nbsp; info@solartechmerchants.com
           </p>
         </div>
       </section>
