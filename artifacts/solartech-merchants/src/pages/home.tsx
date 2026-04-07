@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ProductCard';
@@ -66,89 +66,97 @@ const stats = [
 ];
 
 export default function Home() {
-  const [imgLoaded, setImgLoaded] = useState(false);
-
   return (
     <div className="min-h-screen bg-white">
 
       {/* ═══════════════════════════════════════════
-          HERO — black background, orange accents, image right
+          HERO — solid black + solid orange, no overlays
       ═══════════════════════════════════════════ */}
-      <section className="relative bg-[#0f0f0f] overflow-hidden min-h-[92vh] flex items-center">
-        {/* Decorative orange glow */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+      <section className="bg-[#0f0f0f]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[92vh]">
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* LEFT — text on solid black */}
+            <div className="flex flex-col justify-center py-16 pr-0 lg:pr-12">
 
-          {/* Text */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
-              <Sun className="w-3.5 h-3.5" />
-              Nairobi's Premier Solar Specialists
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
-              Power Your<br />
-              <span className="text-primary">Future</span>{' '}
-              <span className="text-white">with</span><br />
-              <span className="text-white">Solar Energy</span>
-            </h1>
-
-            <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg">
-              Premium solar panels, batteries, inverters, and complete combo kits — sourced, tested, and delivered by Kenya's most trusted solar experts.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-14">
-              <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-6 text-base rounded-xl shadow-lg shadow-[#25D366]/30 transition-all hover:scale-[1.02]">
-                  <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
-                  Get Free Quote on WhatsApp
-                </Button>
-              </a>
-              <Link href="/products">
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:border-white/40 px-8 py-6 text-base rounded-xl transition-all">
-                  Browse Products
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
-            </div>
-
-            {/* Mini stats */}
-            <div className="flex flex-wrap gap-x-10 gap-y-4">
-              {stats.map(s => (
-                <div key={s.label}>
-                  <div className="text-2xl font-black text-primary">{s.value}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Hero image */}
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent rounded-3xl" />
-            <img
-              src={HERO_IMAGE}
-              alt="Solar installation"
-              onLoad={() => setImgLoaded(true)}
-              className={`w-full h-[540px] object-cover rounded-3xl shadow-2xl shadow-black/60 transition-opacity duration-700 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-            />
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl px-6 py-4 flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/40">
-                <Sun className="w-6 h-6 text-white" />
+              {/* Solid orange pill badge */}
+              <div className="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8 w-fit">
+                <Sun className="w-3.5 h-3.5" />
+                Nairobi's Premier Solar Specialists
               </div>
-              <div>
-                <div className="font-black text-[#0f0f0f] text-lg leading-none">KES 68,000</div>
-                <div className="text-xs text-gray-500 mt-0.5">550W Complete System</div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
+                Power Your<br />
+                <span className="text-primary">Future</span><br />
+                with Solar<br />
+                Energy
+              </h1>
+
+              <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg">
+                Premium solar panels, batteries, inverters, and complete combo kits — sourced, tested, and delivered by Kenya's most trusted solar experts.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-14">
+                <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-8 py-6 text-base rounded-xl">
+                    <WhatsAppIcon size={20} strokeWidth={1.8} className="mr-2" />
+                    Get Free Quote on WhatsApp
+                  </Button>
+                </a>
+                <Link href="/products">
+                  <Button size="lg" className="bg-white text-[#0f0f0f] hover:bg-gray-100 font-bold px-8 py-6 text-base rounded-xl">
+                    Browse Products
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Stats — solid dividers */}
+              <div className="flex flex-wrap gap-0 border border-white/10 rounded-2xl overflow-hidden w-fit">
+                {stats.map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={`px-7 py-5 ${i !== 0 ? 'border-l border-white/10' : ''}`}
+                  >
+                    <div className="text-2xl font-black text-primary">{s.value}</div>
+                    <div className="text-xs text-gray-400 uppercase tracking-wide mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT — solid orange column with image inset */}
+            <div className="hidden lg:flex flex-col bg-primary relative overflow-hidden">
+              {/* Top label strip */}
+              <div className="flex items-center gap-3 px-10 pt-10 pb-6">
+                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                  <Sun className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-white font-bold text-sm uppercase tracking-widest">Solar Systems</span>
+              </div>
+
+              {/* Photo — fills the rest of the panel, no overlay */}
+              <div className="flex-1 mx-8 mb-0 rounded-t-2xl overflow-hidden">
+                <img
+                  src={HERO_IMAGE}
+                  alt="Solar installation"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Solid white card pinned at bottom */}
+              <div className="absolute bottom-8 left-8 bg-white rounded-2xl px-6 py-4 flex items-center gap-4 shadow-xl">
+                <div className="w-11 h-11 bg-primary rounded-xl flex items-center justify-center">
+                  <Sun className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="font-black text-[#0f0f0f] text-lg leading-none">KES 68,000</div>
+                  <div className="text-xs text-gray-500 mt-0.5">550W Complete System</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
       </section>
 
       {/* ═══════════════════════════════════════════
