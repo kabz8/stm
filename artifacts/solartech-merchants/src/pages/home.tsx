@@ -69,62 +69,61 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* ═══════════════════════════════════════════
-          HERO — white left, full-bleed image right
+          HERO — centered dark, image strip below text
       ═══════════════════════════════════════════ */}
-      <section className="flex flex-col lg:flex-row min-h-screen">
+      <section className="bg-[#0f0f0f]">
 
-        {/* LEFT — white, content */}
-        <div className="flex-1 bg-white flex flex-col justify-center px-8 sm:px-14 xl:px-20 py-20 lg:py-0">
-          <div className="max-w-lg">
+        {/* Text block — centered */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
 
-            <div className="flex items-center gap-2 mb-6">
-              <div className="h-1 w-10 bg-primary rounded-full" />
-              <span className="text-primary font-bold text-xs uppercase tracking-widest">Nairobi, Kenya</span>
-            </div>
+          <div className="inline-flex items-center gap-2 border border-primary/40 rounded-full px-4 py-1.5 mb-8">
+            <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+            <span className="text-primary font-bold text-xs uppercase tracking-widest">Gaberone Plaza · Nairobi, Kenya</span>
+          </div>
 
-            <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black text-[#0f0f0f] leading-[1.05] mb-6">
-              Kenya's<br />
-              <span className="text-primary">Solar</span><br />
-              Experts
-            </h1>
+          <h1 className="text-6xl sm:text-7xl xl:text-8xl font-black text-white leading-[1.0] mb-6 tracking-tight">
+            Power Your<br />
+            Home with<br />
+            <span className="text-primary">Solar.</span>
+          </h1>
 
-            <p className="text-gray-500 text-lg leading-relaxed mb-10">
-              Premium panels, batteries, inverters &amp; complete combo kits — sourced, tested, and delivered across Nairobi.
-            </p>
+          <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+            Premium panels, batteries, inverters &amp; complete combo kits —
+            sourced, tested, and delivered across Nairobi.
+          </p>
 
-            <div className="flex flex-row gap-3 mb-14 flex-wrap">
-              <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-7 py-5 rounded-xl text-sm shadow-lg shadow-primary/25">
-                  <WhatsAppIcon size={17} strokeWidth={1.8} className="mr-2" />
-                  Free Quote
-                </Button>
-              </a>
-              <Link href="/products">
-                <Button className="bg-transparent border-2 border-[#0f0f0f] text-[#0f0f0f] hover:bg-[#0f0f0f] hover:text-white font-bold px-7 py-5 text-sm rounded-xl transition-all">
-                  Browse Products
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
+          <div className="flex flex-row gap-3 justify-center flex-wrap mb-16">
+            <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+              <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-5 rounded-xl text-sm shadow-lg shadow-primary/30">
+                <WhatsAppIcon size={17} strokeWidth={1.8} className="mr-2" />
+                Free Quote on WhatsApp
+              </Button>
+            </a>
+            <Link href="/products">
+              <Button className="bg-transparent border-2 border-white/30 text-white hover:border-white hover:bg-white/10 font-bold px-8 py-5 text-sm rounded-xl transition-all">
+                Browse Products
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-x-10 gap-y-5 border-t border-gray-100 pt-10">
-              {stats.map(s => (
-                <div key={s.label}>
-                  <div className="text-3xl font-black text-[#0f0f0f]">{s.value}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wide mt-1">{s.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* Stats row */}
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 pb-16 border-b border-white/10">
+            {stats.map(s => (
+              <div key={s.label} className="text-center">
+                <div className="text-4xl font-black text-primary">{s.value}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* RIGHT — full-bleed image, zero padding, zero overlay */}
-        <div className="h-64 lg:h-auto lg:w-[52%] xl:w-[55%] shrink-0">
+        {/* Full-width image strip — no text, no overlay */}
+        <div className="w-full h-[340px] sm:h-[420px] lg:h-[500px] overflow-hidden">
           <img
             src={HERO_IMAGE}
             alt="Solar installation in Kenya"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
 
