@@ -113,15 +113,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Full-width image strip — no text, no overlay */}
-        <div className="w-full h-[340px] sm:h-[420px] lg:h-[500px] overflow-hidden">
-          <img
-            src={HERO_IMAGE}
-            alt="Solar installation in Kenya"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-
       </section>
       {/* ═══════════════════════════════════════════
           CATEGORIES — horizontal cards on white
