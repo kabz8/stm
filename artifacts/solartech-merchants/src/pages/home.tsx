@@ -14,7 +14,7 @@ const SOLAR_IMAGE = '/images/solar-array.png';
 const BATTERY_IMAGE = '/images/battery-system.png';
 
 const featuredProducts = products.filter(p =>
-  ['combo-550', 'sp-550', 'bat-100-lithium', 'hithium-dock', 'inv-5000-hybrid', 'combo-1000'].includes(p.id)
+  ['combo-550', 'bat-100-lithium', 'inv-5000-hybrid'].includes(p.id)
 );
 
 const testimonials = [
