@@ -68,7 +68,6 @@ const stats = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-
       {/* ═══════════════════════════════════════════
           HERO — solid black + solid orange, no overlays
       ═══════════════════════════════════════════ */}
@@ -158,7 +157,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           CATEGORIES — horizontal cards on white
       ═══════════════════════════════════════════ */}
@@ -190,7 +188,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           FEATURED PRODUCTS
       ═══════════════════════════════════════════ */}
@@ -214,7 +211,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           COMBO SPOTLIGHT — dark section with orange pop
       ═══════════════════════════════════════════ */}
@@ -273,7 +269,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           WHY CHOOSE US — white with bold orange icons
       ═══════════════════════════════════════════ */}
@@ -297,7 +292,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           TESTIMONIALS — light gray background
       ═══════════════════════════════════════════ */}
@@ -305,7 +299,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Customer Stories</p>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#0f0f0f] mb-4">What Kenyans Say</h2>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#0f0f0f] mb-4">What Our clients Say</h2>
             <p className="text-gray-500 max-w-lg mx-auto">Trusted by hundreds of homes and businesses across Nairobi.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -330,7 +324,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           HITHIUM SPOTLIGHT — premium product feature
       ═══════════════════════════════════════════ */}
@@ -371,7 +364,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ═══════════════════════════════════════════
           CTA FOOTER BAND — full orange
       ═══════════════════════════════════════════ */}
@@ -401,7 +393,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
     </div>
   );
 }
