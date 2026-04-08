@@ -87,6 +87,7 @@ export const products: Product[] = [
     name: "600-1200W DC-AC Power Inverter",
     price: 8500,
     category: "inverters",
+    image: "/images/battery-system.png",
     description: "Basic modified sine wave inverter for lighting and small electronics."
   },
   {
@@ -94,6 +95,7 @@ export const products: Product[] = [
     name: "2000W Pure Sine Wave Inverter",
     price: 14000,
     category: "inverters",
+    image: "/images/battery-system.png",
     description: "Clean power output suitable for sensitive electronics like TVs and computers."
   },
   {
@@ -101,6 +103,7 @@ export const products: Product[] = [
     name: "5000W Hybrid Inverter",
     price: 45000,
     category: "inverters",
+    image: "/images/battery-system.png",
     description: "Advanced hybrid inverter combining solar charge controller and AC inverter in one unit."
   },
 
@@ -110,6 +113,7 @@ export const products: Product[] = [
     name: "550W Solar System Combo",
     price: 68000,
     category: "combos",
+    image: "/images/solar-array.png",
     description: "Complete home system including panel, battery, inverter, and accessories.",
     features: [
       "550W Monocrystalline Panel",
@@ -126,6 +130,7 @@ export const products: Product[] = [
     name: "200W Budget Solar Kit",
     price: 32000,
     category: "combos",
+    image: "/images/solar-array.png",
     description: "Affordable starter kit for basic home power needs.",
     features: [
       "200W Panel",
@@ -139,6 +144,7 @@ export const products: Product[] = [
     name: "1000W Business Power System",
     price: 125000,
     category: "combos",
+    image: "/images/hero-home.png",
     description: "Robust system for small businesses or demanding households.",
     features: [
       "2x 550W Panels",
