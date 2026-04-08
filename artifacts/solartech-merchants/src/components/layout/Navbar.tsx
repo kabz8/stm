@@ -21,11 +21,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="flex items-center justify-between h-20">
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          {/* Logo — left */}
+          <Link href="/" className="flex items-center gap-3 shrink-0">
             <img src="/solartech-logo.png" alt="Solartech Merchants" className="h-12 w-auto" />
             <div className="hidden sm:block leading-tight">
               <span className="font-black text-[#0f0f0f] text-xl block leading-none tracking-tight">SOLARTECH</span>
@@ -33,30 +33,32 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <div className="flex gap-7">
-              {navLinks.map(link => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-semibold transition-colors relative pb-1 ${
-                    isActive(link.href)
-                      ? 'text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full'
-                      : 'text-gray-700 hover:text-primary'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+          {/* Nav links — centered */}
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-7">
+            {navLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-semibold transition-colors relative pb-1 ${
+                  isActive(link.href)
+                    ? 'text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full'
+                    : 'text-gray-700 hover:text-primary'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Get Quote button — right */}
+          <div className="hidden md:flex items-center shrink-0">
             <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-6 rounded-xl shadow-md shadow-primary/25 transition-all hover:scale-[1.02]">
                 <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2" />
                 Get Quote
               </Button>
             </a>
-          </nav>
+          </div>
 
           {/* Mobile toggle */}
           <button
