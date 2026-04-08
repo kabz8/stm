@@ -78,12 +78,6 @@ export default function Home() {
             {/* LEFT — text on solid black */}
             <div className="flex flex-col justify-center py-16 pr-0 lg:pr-12">
 
-              {/* Solid orange pill badge */}
-              <div className="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8 w-fit">
-                <Sun className="w-3.5 h-3.5" />
-                Nairobi's Premier Solar Specialists
-              </div>
-
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
                 Power Your<br />
                 <span className="text-primary">Future</span><br />
