@@ -14,11 +14,6 @@ const values = [
   { icon: Shield, title: 'Expertise', text: 'With 5+ years in the industry and 500+ successful installations, our team has the knowledge to guide you right.' },
 ];
 
-const team = [
-  { name: 'David Njoroge', role: 'Founder & CEO', description: 'Solar engineer with 10+ years of renewable energy experience across East Africa.' },
-  { name: 'Mercy Akinyi', role: 'Sales Manager', description: 'Solar product specialist helping customers choose the perfect system for their needs.' },
-  { name: 'Brian Ochieng', role: 'Technical Lead', description: 'Certified solar installer and system designer ensuring every installation is flawless.' },
-];
 
 export default function About() {
   return (
@@ -32,7 +27,6 @@ export default function About() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">Nairobi's trusted solar energy specialists — empowering homes and businesses with clean, reliable power.</p>
         </div>
       </div>
-
       {/* Story */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +68,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Values */}
       <section className="py-20 bg-[#fafafa]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,30 +89,34 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Team */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">The Team</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#0f0f0f] mb-4">Meet the Experts</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Solar professionals passionate about bringing clean energy to Kenya.</p>
+            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Leadership</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#0f0f0f] mb-4">Meet the Founder</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">The vision behind Solartech Merchants — clean energy for every Kenyan home.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {team.map(member => (
-              <div key={member.name} className="text-center border-2 border-gray-100 rounded-2xl p-8 hover:border-primary transition-all hover:shadow-xl hover:shadow-primary/10 group">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
-                  <Users className="w-9 h-9 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="font-black text-[#0f0f0f] text-lg">{member.name}</h3>
-                <div className="text-primary text-sm font-bold mb-2">{member.role}</div>
-                <p className="text-gray-500 text-sm leading-relaxed">{member.description}</p>
+          <div className="flex justify-center">
+            <div className="text-center border-2 border-gray-100 rounded-2xl p-10 hover:border-primary transition-all hover:shadow-xl hover:shadow-primary/10 group max-w-sm w-full">
+              <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors">
+                <Users className="w-10 h-10 text-primary group-hover:text-white transition-colors" />
               </div>
-            ))}
+              <h3 className="font-black text-[#0f0f0f] text-xl mb-1">Peter Macharia</h3>
+              <div className="text-primary text-sm font-bold mb-3">Founder &amp; CEO</div>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                Solar entrepreneur passionate about bringing clean, affordable energy to homes and businesses across Kenya.
+              </p>
+              <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-xl">
+                  <WhatsAppIcon size={16} strokeWidth={1.8} className="mr-2" />
+                  Chat with Peter
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="bg-primary py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
