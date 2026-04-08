@@ -69,87 +69,65 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* ═══════════════════════════════════════════
-          HERO — solid black + solid orange, no overlays
+          HERO — white left, full-bleed image right
       ═══════════════════════════════════════════ */}
-      <section className="bg-[#0f0f0f]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[92vh]">
+      <section className="flex flex-col lg:flex-row min-h-screen">
 
-            {/* LEFT — text on solid black */}
-            <div className="flex flex-col justify-center py-16 pr-0 lg:pr-12">
+        {/* LEFT — white, content */}
+        <div className="flex-1 bg-white flex flex-col justify-center px-8 sm:px-14 xl:px-20 py-20 lg:py-0">
+          <div className="max-w-lg">
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
-                Power Your<br />
-                <span className="text-primary">Future</span><br />
-                with Solar<br />
-                Energy
-              </h1>
-
-              <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg">
-                Premium solar panels, batteries, inverters, and complete combo kits — sourced, tested, and delivered by Kenya's most trusted solar experts.
-              </p>
-
-              <div className="flex flex-row gap-3 mb-14 flex-wrap">
-                <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                  <Button size="default" className="bg-transparent border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-bold px-6 py-5 text-sm rounded-xl transition-all">
-                    <WhatsAppIcon size={17} strokeWidth={1.8} className="mr-2" />
-                    Free Quote on WhatsApp
-                  </Button>
-                </a>
-                <Link href="/products">
-                  <Button size="default" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0f0f0f] font-bold px-6 py-5 text-sm rounded-xl transition-all">
-                    Browse Products
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Stats — solid dividers */}
-              <div className="flex flex-wrap gap-0 border border-white/10 rounded-2xl overflow-hidden w-fit">
-                {stats.map((s, i) => (
-                  <div
-                    key={s.label}
-                    className={`px-7 py-5 ${i !== 0 ? 'border-l border-white/10' : ''}`}
-                  >
-                    <div className="text-2xl font-black text-primary">{s.value}</div>
-                    <div className="text-xs text-gray-400 uppercase tracking-wide mt-0.5">{s.label}</div>
-                  </div>
-                ))}
-              </div>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="h-1 w-10 bg-primary rounded-full" />
+              <span className="text-primary font-bold text-xs uppercase tracking-widest">Nairobi, Kenya</span>
             </div>
 
-            {/* RIGHT — solid orange column with image inset */}
-            <div className="hidden lg:flex flex-col bg-primary relative overflow-hidden">
-              {/* Top label strip */}
-              <div className="flex items-center gap-3 px-10 pt-10 pb-6">
-                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                  <Sun className="w-4 h-4 text-primary" />
-                </div>
-                <span className="text-white font-bold text-sm uppercase tracking-widest">Solar Systems</span>
-              </div>
+            <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black text-[#0f0f0f] leading-[1.05] mb-6">
+              Kenya's<br />
+              <span className="text-primary">Solar</span><br />
+              Experts
+            </h1>
 
-              {/* Photo — fills the rest of the panel, no overlay */}
-              <div className="flex-1 mx-8 mb-0 rounded-t-2xl overflow-hidden">
-                <img
-                  src={HERO_IMAGE}
-                  alt="Solar installation"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <p className="text-gray-500 text-lg leading-relaxed mb-10">
+              Premium panels, batteries, inverters &amp; complete combo kits — sourced, tested, and delivered across Nairobi.
+            </p>
 
-              {/* Solid white card pinned at bottom */}
-              <div className="absolute bottom-8 left-8 bg-white rounded-2xl px-6 py-4 flex items-center gap-4 shadow-xl">
-                <div className="w-11 h-11 bg-primary rounded-xl flex items-center justify-center">
-                  <Sun className="w-5 h-5 text-white" />
+            <div className="flex flex-row gap-3 mb-14 flex-wrap">
+              <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-7 py-5 rounded-xl text-sm shadow-lg shadow-primary/25">
+                  <WhatsAppIcon size={17} strokeWidth={1.8} className="mr-2" />
+                  Free Quote
+                </Button>
+              </a>
+              <Link href="/products">
+                <Button className="bg-transparent border-2 border-[#0f0f0f] text-[#0f0f0f] hover:bg-[#0f0f0f] hover:text-white font-bold px-7 py-5 text-sm rounded-xl transition-all">
+                  Browse Products
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-x-10 gap-y-5 border-t border-gray-100 pt-10">
+              {stats.map(s => (
+                <div key={s.label}>
+                  <div className="text-3xl font-black text-[#0f0f0f]">{s.value}</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-wide mt-1">{s.label}</div>
                 </div>
-                <div>
-                  <div className="font-black text-[#0f0f0f] text-lg leading-none">KES 68,000</div>
-                  <div className="text-xs text-gray-500 mt-0.5">550W Complete System</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* RIGHT — full-bleed image, zero padding, zero overlay */}
+        <div className="h-64 lg:h-auto lg:w-[52%] xl:w-[55%] shrink-0">
+          <img
+            src={HERO_IMAGE}
+            alt="Solar installation in Kenya"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
       </section>
       {/* ═══════════════════════════════════════════
           CATEGORIES — horizontal cards on white
