@@ -76,11 +76,6 @@ export default function Home() {
         {/* Text block — centered */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
 
-          <div className="inline-flex items-center gap-2 border border-primary/40 rounded-full px-4 py-1.5 mb-8">
-            <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-            <span className="text-primary font-bold text-xs uppercase tracking-widest">Gaberone Plaza · Nairobi, Kenya</span>
-          </div>
-
           <h1 className="text-6xl sm:text-7xl xl:text-8xl font-black text-white leading-[1.0] mb-6 tracking-tight">
             Power Your<br />
             Home with<br />
