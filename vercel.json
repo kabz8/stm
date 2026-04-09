@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm --filter @workspace/solartech-merchants run build",
-  "outputDirectory": "artifacts/solartech-merchants/dist",
+  "buildCommand": "pnpm --filter @workspace/solartech-merchants run build && rm -rf dist && cp -r artifacts/solartech-merchants/dist dist",
+  "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
